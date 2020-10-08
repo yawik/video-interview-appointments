@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * YAWIK Video Interview Appointments
+ *
+ * @see       https://github.com/yawik/video-interview-appointments for the canonical source repository
+ * @copyright https://github.com/yawik/video-interview-appointments/blob/master/COPYRIGHT
+ * @license   https://github.com/yawik/video-interview-appointments/blob/master/LICENSE
+ */
+
+declare(strict_types=1);
+
+if ($this->acl($application, 'change')):
+    $this->headScript()->appendFile($this->basePath('modules/Via/js/via.js'));
+?>
+<button class="btn btn-sm btn-default" data-title="<?=$this->translate('Invite the applicant')?>"
+        data-toggle="modal"
+        data-target="#via-invite-box"
+        title="<?=$this->translate('Invite the applicant')?>"
+>
+    <i class="yk-icon fa-calendar-check-o"></i> <?php echo $this->translate("Invite");?>
+</button>
+
+
+<div id="via-invite-box" class="modal fade" data-application-id="<?=$application->getId()?>" tabindex="-1" role="dialog" aria-labelledby="via-invite-box-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="via-invite-box-label">
+                    <?php echo $this->translate('Invite the applicant') ?>
+                </h3>
+            </div>
+            <div id="via-invite-box-content" class="modal-body">
+                <div id="via-invite-collect">
+                <?=$this->form($form)?>
+                </div>
+                <div id="via-invite-sending">
+                    <p><?=$this->translate('Generate appointment and sending...')?></p>
+                </div>
+                <div id="via-invite-done">
+                    <p><?=$this->translate('Send appointment.')?></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo $this->translate('Cancel') ?></button>
+                <button class="btn btn-primary" id="via-invite-box-send"><?php echo $this->translate('Confirm') ?></button>
+                <button class="btn btn-default" id="via-invite-cancel" data-dismiss="modal" aria-hidden="true"><?php echo $this->translate('Close') ?></button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif;

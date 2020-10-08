@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * YAWIK Video Interview Appointments
+ *
+ * @see       https://github.com/yawik/video-interview-appointments for the canonical source repository
+ * @copyright https://github.com/yawik/video-interview-appointments/blob/master/COPYRIGHT
+ * @license   https://github.com/yawik/video-interview-appointments/blob/master/LICENSE
+ */
+
+declare(strict_types=1);
+?>
+
+<?=$this->form()->openTag($element)?>
+<?=$this->formRowCombined([
+    6 => $element->get('date'),
+    3 => $element->get('time')
+])?>
+<?=$this->formRow($element->get('summary'))?>
+<?=$this->formRow($element->get('description'))?>
+<?=$this->form()->closeTag()?>
+
