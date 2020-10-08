@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="yawik-export-ba">
+  <config name="installed_paths" value="../../slevomat/coding-standard"/>
+  <exclude-pattern>**/test/*</exclude-pattern>
+  <exclude-pattern>**/vendor/*</exclude-pattern>
+
+  <rule ref="PSR12"/>
+  <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+          <properties>
+            <property name="newlinesCountBetweenOpenTagAndDeclare" value="2" />
+            <property name="newlinesCountAfterDeclare" value="2" />
+            <property name="spacesCountAroundEqualsSign" value="0" />
+          </properties>
+        </rule>
+        <rule ref="SlevomatCodingStandard.Arrays.DisallowImplicitArrayCreation" />
+        <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements">
+          <properties>
+            <property name="alwaysUsedPropertiesAnnotations" type="array">
+              <element value="@ODM\" />
+            </property>
+          </properties>
+        </rule>
+        <rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure" />
+        <rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue" />
+        <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
+          <properties>
+            <property name="searchAnnotations" value="true" />
+          </properties>
+        </rule>
+        <rule ref="SlevomatCodingStandard.Namespaces.UseFromSameNamespace" />
+        <rule ref="SlevomatCodingStandard.Namespaces.UselessAlias" />
+        <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
+          <properties>
+            <property name="caseSensitive" value="true" />
+          </properties>
+        </rule>
+        <rule ref="SlevomatCodingStandard.Namespaces.NamespaceDeclaration" />
+        <rule ref="SlevomatCodingStandard.Variables.UnusedVariable" />
+        <rule ref="SlevomatCodingStandard.Variables.UselessVariable" />
+        <rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints" />
+        <rule ref="SlevomatCodingStandard.PHP.TypeCast" />
+        <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing">
+          <properties>
+            <property name="spacesCountBeforeColon" value="0" />
+          </properties>
+        </rule>
+        <rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue" />
+</ruleset>

@@ -1,0 +1,89 @@
+{
+    "type": "yawik-module",
+    "name": "yawik/video-interview-appointments",
+    "description": "Make and send appointments for a video interview with an applicant.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mathias Gelhausen",
+            "email": "gelhausen@cross-solution.de"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/yawik/video-interview-appointments",
+        "issues": "https://github.com/yawik/video-interview-appointments/issues"
+    },
+    "keywords": [
+        "yawik",
+        "module",
+        "laminas",
+        "jitsi",
+        "video interview",
+        "schedule",
+        "appointment"
+    ],
+    "config": {
+        "platform": {
+            "ext-mongo": "1.6.16"
+        },
+        "process-timeout": 0,
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4",
+        "yawik/core": "^0.34",
+        "yawik/applications": "^0.34",
+        "laminas/laminas-dependency-plugin": "^1.0"
+    },
+    "require-dev": {
+        "yawik/auth": "^0.34",
+        "yawik/behat": "^0.34",
+        "yawik/composer-plugin": "^1.0",
+        "yawik/jobs": "^0.34",
+        "yawik/cv": "^0.34",
+        "yawik/geo": "^1.1",
+        "yawik/install": "^0.34",
+        "yawik/organizations": "^0.34",
+        "yawik/settings": "^0.34",
+        "phpunit/phpunit": "^8.0",
+        "cross-solution/phpunit-utils": "^2.0",
+        "squizlabs/php_codesniffer": "^3.5",
+        "slevomat/coding-standard": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Via\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ViaTest\\": "test/src/"
+        }
+    },
+    "extra": {
+        "zf": {
+            "module": "Via"
+        }
+    },
+    "scripts": {
+        "auto-scripts": [
+            "npm install",
+            "dir=$(pwd) && cd ${dir%%/test/sandbox} && node_modules/grunt/bin/grunt"
+        ],
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "serve": "APPLICATION_ENV='development' php -S 0.0.0.0:8000 -t test/sandbox/public test/sandbox/public/router.php",
+        "test": "vendor/bin/phpunit",
+        "test-html": "vendor/bin/phpunit --coverage-html=test/coverage",
+        "test-text": "vendor/bin/phpunit --coverage-text",
+        "test-clover": "vendor/bin/phpunit --coverage-clover=coverage.clover.xml",
+        "lint": "vendor/bin/phpcs -v --standard=phpcs.xml src/*"
+    }
+}

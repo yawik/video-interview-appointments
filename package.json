@@ -1,0 +1,17 @@
+{
+  "name": "yawik-video-interview-invitations",
+  "version": "0.1.0",
+  "private": false,
+  "lisence": "MIT",
+  "devDependencies": {
+    "yawik-core": "test/sandbox/public/modules/Core",
+    "grunt": "^1.0.3",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "load-grunt-tasks": "^4.0.0"
+  }
+}
